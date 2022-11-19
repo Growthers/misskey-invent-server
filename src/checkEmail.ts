@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { getMisskeyInviteCode } from "./getMisskeyInviteCode";
+import { sendEmail } from "./sendEmail";
 
 type ResponseStatus = {
    status: "OK" | "NG" | "ERR";
@@ -24,7 +25,15 @@ const CheckEmail = async (req: Request, res: Response) => {
    for (const reg of regexs) {
       if (reg.test(email)) {
          // eslint-disable-next-line no-await-in-loop
-         console.log(await getMisskeyInviteCode());
+         const code = await getMisskeyInviteCode();
+         const r = sendEmail(email, code);
+         if (!r) {
+            const data: ResponseStatus = {
+               status: "ERR",
+            };
+            res.send(data);
+            return;
+         }
          const data: ResponseStatus = {
             status: "OK",
          };
