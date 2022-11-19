@@ -23,6 +23,7 @@ export async function sendEmail(addr: string, code:string) {
 あなたのメールアドレスを確認しましたので、招待コードをお送りします。\n
 このコードは1回のみ、あなたのみ使用可能です。\n
 招待コード: ${code}\n\n
+https://mi.kosen.land/ にアクセスして、登録を完了してください。\n
 このメールアドレスは送信専用ですので返信しないでください。`
         });
     }
