@@ -17,17 +17,24 @@ const CheckEmail = async (req: Request, res: Response) => {
    console.log(email);
 
    // 正規表現で登録可能なメールアドレスを確認
-   const regex = /\w{1,64}\.kosen-ac\.jp/;
+   // この配列に正規表現を登録する
+   const regexs = [/\w{1,64}\.kosen-ac\.jp/];
 
-   if (regex.test(email)) {
-      // ここにメール送信処理を書く
-      console.log(await getMisskeyInviteCode());
-      const data: ResponseStatus = {
-         status: "OK",
-      };
-      res.send(data);
-      return;
+   // eslint-disable-next-line no-restricted-syntax
+   for (const reg of regexs) {
+      if (reg.test(email)) {
+         // eslint-disable-next-line no-await-in-loop
+         console.log(await getMisskeyInviteCode());
+         const data: ResponseStatus = {
+            status: "OK",
+         };
+         res.send(data);
+         return;
+      }
    }
+
+   /*
+    */
 
    const data: ResponseStatus = {
       status: "NG",
