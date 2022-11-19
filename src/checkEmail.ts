@@ -18,7 +18,6 @@ const CheckEmail = async (req: Request, res: Response) => {
 
    // 正規表現で登録可能なメールアドレスを確認
    const regex = /\w{1,64}\.kosen-ac\.jp/;
-   console.log(regex.test(email));
 
    if (regex.test(email)) {
       // ここにメール送信処理を書く
