@@ -21,7 +21,7 @@ const CheckEmail = async (req: Request, res: Response) => {
    const regex = /\w{1,64}\.kosen-ac\.jp/;
 
    if (regex.test(email)) {
-      const code = await getMisskeyInviteCode());
+      const code = await getMisskeyInviteCode();
       const r = sendEmail(email, code)
       if (!r) {
         const data:ResponseStatus = {
