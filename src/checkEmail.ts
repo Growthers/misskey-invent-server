@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
+import { getMisskeyInviteCode } from "./getMisskeyInviteCode";
 
 type ResponseStatus = {
    status: "OK" | "NG" | "ERR";
 };
-const CheckEmail = (req: Request, res: Response) => {
+const CheckEmail = async (req: Request, res: Response) => {
    const { email } = req.body;
 
    if (email === null || email === undefined) {
@@ -21,6 +22,7 @@ const CheckEmail = (req: Request, res: Response) => {
 
    if (regex.test(email)) {
       // ここにメール送信処理を書く
+      console.log(await getMisskeyInviteCode());
       const data: ResponseStatus = {
          status: "OK",
       };
