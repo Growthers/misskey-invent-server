@@ -1,7 +1,7 @@
-import Test from "./foo";
+import express from "express";
 
 const App = () => {
-   console.log(Test());
+   const app = express();
 };
 
 App();
