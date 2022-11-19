@@ -13,6 +13,7 @@ const App = () => {
    }
    const app = express();
    app.use(cors());
+   app.use(express.json());
 
    app.post("/api/v1/request", CheckEmail);
 
