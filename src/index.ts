@@ -1,4 +1,5 @@
 import express from "express";
+import cros from "cros";
 import dotenv from "dotenv";
 import CheckEmail from "./checkEmail";
 
@@ -11,11 +12,13 @@ const App = () => {
       process.exit(1);
    }
    const app = express();
+   app.use(cros());
+
    app.post("/api/v1/request", CheckEmail);
+
    app.listen(serverPort, () => {
       console.log("Start Misskey Invent Server");
    });
-
 };
 
 App();
