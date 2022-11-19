@@ -1,10 +1,10 @@
 import express from "express";
-import cros from "cros";
+import cors from "cors";
 import dotenv from "dotenv";
 import CheckEmail from "./checkEmail";
 
 const App = () => {
-   //環境変数読み込み
+   // 環境変数読み込み
    dotenv.config();
    const serverPort = process.env.SERVER_PORT;
    if (serverPort === undefined) {
@@ -12,7 +12,7 @@ const App = () => {
       process.exit(1);
    }
    const app = express();
-   app.use(cros());
+   app.use(cors());
 
    app.post("/api/v1/request", CheckEmail);
 
