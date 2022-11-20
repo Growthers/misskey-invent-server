@@ -11,6 +11,7 @@ export default function emailDomainList(): Array<string> {
       "kurume.kosen-ac.jp",
       "kushiro.kosen-ac.jp",
       "nara.kosen-ac.jp",
+      "nara.ac.jp",
       "niihama.kosen-ac.jp",
       "numazu.kosen-ac.jp",
       "oyama.kosen-ac.jp",
@@ -32,7 +33,6 @@ export default function emailDomainList(): Array<string> {
       "kagawa-nct.ac.jp",
       "kumamoto-nct.ac.jp",
       "kure-nct.ac.jp",
-      "kurume-nct.ac.jp",
       "miyakonojo-nct.ac.jp",
       "nagano-nct.ac.jp",
       "niihama-nct.ac.jp",
@@ -78,6 +78,5 @@ export default function emailDomainList(): Array<string> {
       "g.kobe-kosen.ac.jp",
       "ed.cc.suzuka-ct.ac.jp",
       "toyama.kosen-ac.jp",
-      "kurume.kosen-ac.jp"
    ];
 }
