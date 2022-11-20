@@ -30,6 +30,7 @@ export default function emailDomainList(): Array<string> {
       "fukushima-nct.ac.jp",
       "gifu-nct.ac.jp",
       "ishikawa-nct.ac.jp",
+      "ishikawa.kosen-ac.jp",
       "kagawa-nct.ac.jp",
       "kumamoto-nct.ac.jp",
       "kure-nct.ac.jp",
