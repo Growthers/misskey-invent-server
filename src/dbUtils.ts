@@ -38,14 +38,14 @@ const WriteJson = () => {
 
 // jsonDataにemailAddressが存在するかを確認
 const CheckExistEmail = (emailAddress: string): boolean => {
-   const flag = jsonData.existEmail.includes(emailAddress);
+   const flag = jsonData.existEmail.includes(emailAddress.toLowerCase());
 
    return flag;
 };
 
 // emailAddressを新規登録
 const AddNewEmailAddr = (emailAddress: string) => {
-   const nowExistEmailCout = jsonData.existEmail.push(emailAddress);
+   const nowExistEmailCout = jsonData.existEmail.push(emailAddress.toLowerCase());
    if (nowExistEmailCout > oldExistCount + 10) {
       WriteJson();
    }
