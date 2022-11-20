@@ -2,6 +2,12 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import CheckEmail from "./checkEmail";
+import {
+   LoadJson,
+   WriteJson,
+   CheckExistEmail,
+   AddNewEmailAddr,
+} from "./dbUtils";
 
 const App = () => {
    // 環境変数読み込み
@@ -11,6 +17,9 @@ const App = () => {
       console.error(".envにSERVER_PORTを設定してください");
       process.exit(1);
    }
+
+   LoadJson();
+
    const app = express();
    app.use(cors());
    app.use(express.json());
@@ -19,6 +28,11 @@ const App = () => {
 
    app.listen(serverPort, () => {
       console.log("Start Misskey Invent Server");
+   });
+
+   process.on("SIGTERM", () => {
+      WriteJson();
+      console.log("Process terminated.");
    });
 };
 
