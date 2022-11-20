@@ -6,6 +6,9 @@ export default function checkEmailAddr(addr: string): boolean {
     let res:boolean=false;
     for (let i=0; i < emailDomainList().length; i+=1) {
         res = addr.split("@")[1] === emailDomainList()[i];
+        if (res) {
+            return res;
+        }
     };
     return res
 }
