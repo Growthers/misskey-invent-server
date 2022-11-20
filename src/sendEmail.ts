@@ -1,13 +1,13 @@
 import Mailgun from "mailgun.js";
 import formData from "form-data";
 
-export async function sendEmail(addr: string, code: string) {
+export default async function sendEmail(addr: string, code: string) {
    const MAIL_USER: string = process.env.MAIL_USER ?? "none";
    const MAIL_KEY: string = process.env.MAIL_KEY ?? "none";
    const MAIL_DOMAIN: string = process.env.MAIL_DOMAIN ?? "none";
    const mailgun = new Mailgun(formData);
 
-   if (MAIL_USER === "none" || MAIL_KEY === "none" || MAIL_DOMAIN == "none") {
+   if (MAIL_USER === "none" || MAIL_KEY === "none" || MAIL_DOMAIN === "none") {
       console.error(
          "メール送信設定がされていません",
          MAIL_USER,
@@ -35,5 +35,4 @@ https://mi.kosen.land/ にアクセスして、登録を完了してください
       console.log("error:", e);
       throw e;
    }
-   return;
 }

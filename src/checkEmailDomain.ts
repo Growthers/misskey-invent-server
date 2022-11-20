@@ -1,11 +1,11 @@
-import { emailDomainList } from "./domainList";
+import emailDomainList from "./domainList";
 // true: 高専のメールアドレス
-export function checkEmailAddr(addr: string): boolean {
+export default function checkEmailAddr(addr: string): boolean {
    // ドメイン部をリストと照合
-   for (let v of emailDomainList) {
-      if (addr.split("@")[1] === v) {
-         return true;
-      }
+   /* eslint-ignore */
+   let res: boolean = false;
+   for (let i = 0; i < emailDomainList().length; i += 1) {
+      res = addr.split("@")[1] === emailDomainList()[i];
    }
-   return false;
+   return res;
 }
