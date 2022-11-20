@@ -57,13 +57,12 @@ export default function emailDomainList(): Array<string> {
       // 九州
       "kurume-nct.ac.jp",
       "ariake-nct.ac.jp",
-      "ga.ariake-nct.ac.jp",
       "kct.ac.jp",
       "sasebo.ac.jp",
       "kumamoto-nct.ac.jp",
       "oita-ct.ac.jp",
       "miyakonojo-nct.ac.jp",
       "kagoshima-ct.ac.jp",
-      "okinawa-ct.ac.jp"
+      "okinawa-ct.ac.jp",
    ];
 }
