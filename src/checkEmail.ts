@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { getMisskeyInviteCode } from "./getMisskeyInviteCode";
-import { sendEmail } from "./sendEmail";
-import {checkEmailAddr} from "./checkEmailDomain";
+import getMisskeyInviteCode  from "./getMisskeyInviteCode";
+import sendEmail from "./sendEmail";
+import checkEmailAddr from "./checkEmailDomain";
 
 
 type ResponseStatus = {
@@ -14,8 +14,7 @@ const CheckEmail = async (req: Request, res: Response) => {
       const data: ResponseStatus = {
          status: "ERR",
       };
-      res.status(400).send(data);
-      return;
+      return res.status(400).send(data);
    }
    console.log(email);
 
@@ -25,14 +24,14 @@ const CheckEmail = async (req: Request, res: Response) => {
       const data: ResponseStatus = {
          status: "NG",
       };
-      res.send(data);
+      return res.status(400).send(data);
    }
 
    if (!checkEmailAddr(email)){
       const data: ResponseStatus = {
          status: "NG",
       };
-      res.send(data);
+      return res.status(400).send(data);
    }
 
 
@@ -43,16 +42,14 @@ const CheckEmail = async (req: Request, res: Response) => {
       const data: ResponseStatus = {
          status: "ERR"
       };
-      res.send(data)
-      return;
+      return res.status(400).send(data);
+      
    }
 
    const data: ResponseStatus = {
       status: "OK",
    };
-   res.send(data);
-   return;
-
+   return res.status(200).send(data);
 };
 
 export default CheckEmail;
