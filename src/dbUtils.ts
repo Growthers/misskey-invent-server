@@ -45,7 +45,9 @@ const CheckExistEmail = (emailAddress: string): boolean => {
 
 // emailAddressを新規登録
 const AddNewEmailAddr = (emailAddress: string) => {
-   const nowExistEmailCout = jsonData.existEmail.push(emailAddress.toLowerCase());
+   const nowExistEmailCout = jsonData.existEmail.push(
+      emailAddress.toLowerCase()
+   );
    if (nowExistEmailCout > oldExistCount + 10) {
       WriteJson();
    }

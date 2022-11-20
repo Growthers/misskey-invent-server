@@ -53,6 +53,7 @@ export default function emailDomainList(): Array<string> {
       "numazu-ct.ac.jp",
       "oita-ct.ac.jp",
       "okinawa-ct.ac.jp",
+      "edu.okinawa-ct.ac.jp",
       "oyama-ct.ac.jp",
       "suzuka-ct.ac.jp",
       "tokyo-ct.ac.jp",
