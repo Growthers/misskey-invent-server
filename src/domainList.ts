@@ -35,6 +35,7 @@ export default function emailDomainList(): Array<string> {
       "wakayama-nct.ac.jp",
       "toba-cmt.ac.jp",
       "cf.osakafu-u.ac.jp",
+      "osaka-pct.ac.jp",
       "cf.omu.ac.jp",
       "kobe-kosen.ac.jp",
       "ict-kanazawa.ac.jp",
@@ -49,13 +50,14 @@ export default function emailDomainList(): Array<string> {
       "anan-nct.ac.jp",
       "kagawa-nct.ac.jp",
       "niihama-nct.ac.jp",
-      "kouchi-ct.ac.jp"
+      "kouchi-ct.ac.jp",
       "hiroshima-cmt.ac.jp",
       "oshima.ac.jp",
       "yuge.ac.jp",
       // 九州
       "kurume-nct.ac.jp",
       "ariake-nct.ac.jp",
+      "ga.ariake-nct.ac.jp",
       "kct.ac.jp",
       "sasebo.ac.jp",
       "kumamoto-nct.ac.jp",
