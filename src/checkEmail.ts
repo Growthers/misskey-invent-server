@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { getMisskeyInviteCode } from "./getMisskeyInviteCode";
-import {sendEmail} from "./sendEmail";
+import { sendEmail } from "./sendEmail";
+import {checkEmailAddr} from "./checkEmailDomain";
+
 
 type ResponseStatus = {
    status: "OK" | "NG" | "ERR";
@@ -17,30 +19,40 @@ const CheckEmail = async (req: Request, res: Response) => {
    }
    console.log(email);
 
-   // 正規表現で登録可能なメールアドレスを確認
-   const regex = /\w{1,64}\.kosen-ac\.jp/;
-
-   if (regex.test(email)) {
-      const code = await getMisskeyInviteCode();
-      const r = sendEmail(email, code)
-      if (!r) {
-        const data:ResponseStatus = {
-          status: "ERR"
-        };
-        res.send(data)
-        return;
-      }
+   // メールアドレスの正規表現
+   const regex = /[\w\-\._]+@[\w\-\._]+\.[A-Za-z]+/;
+   if (!regex.test(email)) {
       const data: ResponseStatus = {
-         status: "OK",
+         status: "NG",
       };
       res.send(data);
+   }
+
+   if (!checkEmailAddr(email)){
+      const data: ResponseStatus = {
+         status: "NG",
+      };
+      res.send(data);
+   }
+
+
+   const code = await getMisskeyInviteCode();
+   const r = sendEmail(email, code)
+   
+   if (!r) {
+      const data: ResponseStatus = {
+         status: "ERR"
+      };
+      res.send(data)
       return;
    }
 
    const data: ResponseStatus = {
-      status: "NG",
+      status: "OK",
    };
    res.send(data);
+   return;
+
 };
 
 export default CheckEmail;
