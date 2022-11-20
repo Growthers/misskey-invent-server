@@ -74,5 +74,6 @@ export default function emailDomainList(): Array<string> {
       "tokuyama.ac.jp",
       "yuge.ac.jp",
       "matsue-ct.jp",
+      "g.metro-cit.ac.jp"
    ];
 }
