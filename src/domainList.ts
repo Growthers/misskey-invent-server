@@ -77,5 +77,7 @@ export default function emailDomainList(): Array<string> {
       "g.metro-cit.ac.jp",
       "g.kobe-kosen.ac.jp",
       "ed.cc.suzuka-ct.ac.jp",
+      "toyama.kosen-ac.jp",
+      "kurume.kosen-ac.jp"
    ];
 }
