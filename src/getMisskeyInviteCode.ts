@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function getMisskeyInviteCode() {
+export default async function getMisskeyInviteCode() {
    if (!process.env.MISSKEY_FQDN || !process.env.MISSKEY_TOKEN) {
       console.error("トークンまたはFQDNが設定されていません");
       return "";

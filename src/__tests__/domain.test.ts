@@ -1,4 +1,4 @@
-import {checkEmailAddr} from "../checkEmailDomain";
+import checkEmailAddr from "../checkEmailDomain";
 
 describe("ドメイン名を正しく判定できるか", () => {
     test("リストに無いものは弾く", () => {
