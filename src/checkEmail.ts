@@ -42,7 +42,7 @@ const CheckEmail = async (req: Request, res: Response) => {
       const data: ResponseStatus = {
          status: "NG",
       };
-      res.send(data);
+      return res.send(data);
    }
 
    const code = await getMisskeyInviteCode();

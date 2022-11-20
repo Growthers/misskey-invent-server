@@ -2,12 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import CheckEmail from "./checkEmail";
-import {
-   LoadJson,
-   WriteJson,
-   CheckExistEmail,
-   AddNewEmailAddr,
-} from "./dbUtils";
+import { LoadJson, WriteJson } from "./dbUtils";
 
 const App = () => {
    // 環境変数読み込み
