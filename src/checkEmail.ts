@@ -42,8 +42,6 @@ const CheckEmail = async (req: Request, res: Response) => {
       }
    }
 
-   /*
-    */
 
    const data: ResponseStatus = {
       status: "NG",
