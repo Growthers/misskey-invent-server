@@ -1,4 +1,5 @@
 import nodemailer, { TransportOptions, SendMailOptions } from "nodemailer";
+
 const SendEmailFromNodemailer = async (emailAddr: string, code: string) => {
    const MAIL_USER: string = process.env.MAIL_USER ?? "none";
    const MAIL_DOMAIN: string = process.env.MAIL_DOMAIN ?? "none";
@@ -7,10 +8,20 @@ const SendEmailFromNodemailer = async (emailAddr: string, code: string) => {
       return;
    }
 
-   const transportOption: TransportOptions = {};
-   const mailOption: SendMailOptions = {};
+   const mailOption: SendMailOptions = {
+      from: MAIL_USER,
+      to: "me@yuigishi.dev",
+      subject: "test",
+      text: `
+てすと
+      `,
+   };
 
-   const transporter = nodemailer.createTransport(transportOption);
+   const transporter = nodemailer.createTransport({
+      host: MAIL_DOMAIN,
+      port: 25,
+      secure: true,
+   });
    try {
       await transporter.sendMail(mailOption);
    } catch (e) {
