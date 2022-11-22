@@ -4,7 +4,7 @@ import SES from "./mail/ses";
 
 export default async function sendEmail(emailAddr: string, inviteCode: string) {
    // default use mailgun.
-   const MAIL_SERVICE = process.env.MAIL_SERVICE ?? "";
+   const mailService = process.env.MAIL_SERVICE ?? "";
    const mailFrom = process.env.MAIL_FROM ?? "";
    if (mailFrom === "") {
       console.log("MAIL_FROM is not set in .env");
@@ -37,9 +37,9 @@ export default async function sendEmail(emailAddr: string, inviteCode: string) {
 
    // send email
    if (
-      MAIL_SERVICE === "" ||
-      MAIL_SERVICE === "mailgun" ||
-      MAIL_SERVICE === "MAILGUN"
+      mailService === "" ||
+      mailService === "mailgun" ||
+      mailService === "MAILGUN"
    ) {
       // check env
       if (mailKey === "" || mailUser === "" || mailDomain === "") {
@@ -51,7 +51,7 @@ export default async function sendEmail(emailAddr: string, inviteCode: string) {
 
       const mailgun: IMailer = new MailGun(mailKey, mailUser, mailDomain);
       await EmailSender(mailgun, body);
-   } else if (MAIL_SERVICE === "ses" || MAIL_SERVICE === "SES") {
+   } else if (mailService === "ses" || mailService === "SES") {
       // check env
       if (
          smtpUser === "" ||
