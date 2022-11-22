@@ -1,14 +1,14 @@
 export interface IMailer {
-    Send(body: mail):Promise<boolean>
+    Send(body: Mail):Promise<boolean>
 };
 
-export type mail = {
+export type Mail = {
     from: string;
     to: string;
     subject: string;
     text: string;
 };
 
-export async function emailSender(mailer: IMailer, body: mail) {
+export async function EmailSender(mailer: IMailer, body: Mail) {
     await mailer.Send(body);
 }
