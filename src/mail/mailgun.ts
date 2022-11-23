@@ -1,12 +1,15 @@
-import { IMailer, mail } from "./mailerService";
 import Mailgun from "mailgun.js";
 import formData from "form-data";
 import Client from "mailgun.js/client";
+import { IMailer, Mail } from "./mailerService";
 
-export class MailGun implements IMailer {
+export default class MailGun implements IMailer {
     private key: string;
+
     private name: string;
+
     private domain: string;
+
     private cli: Client;
 
     constructor(mailKey: string, userName: string, domain: string) {
@@ -18,7 +21,7 @@ export class MailGun implements IMailer {
         this.cli = mailgun.client({ username: this.name, key: this.key });
     }
 
-    async Send(body: mail): Promise<boolean> {
+    async Send(body: Mail): Promise<boolean> {
         try {
             await this.cli.messages.create(this.domain, {
                from: body.from,
