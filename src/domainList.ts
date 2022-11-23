@@ -9,6 +9,7 @@ export default function emailDomainList(): Array<string> {
       "hachinohe-ct.ac.jp",
       "ichinoseki.ac.jp",
       "sendai-nct.ac.jp",
+      "sendai-nct.jp",
       "tsuruoka-nct.ac.jp",
       "fukushima-nct.ac.jp",
       // 関東・甲信越
